@@ -1,0 +1,311 @@
+/* Offers Sections Coantaner */
+
+.mainContainerOfOffer {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.offerContainer {
+  /* border: 2px solid rebeccapurple; */
+  display: flex;
+  gap: 20px;
+  background-color: rgb(253, 139, 46);
+  border-radius: 5px;
+  /* box-shadow: 0px 0px 8px 0.3px black; */
+  width: 80%;
+  cursor: pointer;
+  margin-left: 10px;
+  /* height: 30vh; */
+}
+
+/* hare image Css */
+
+.imgContainer {
+  /* border: 3px solid black; */
+  position: relative;
+}
+
+.imgBg {
+  /* background-color: rgb(96, 255, 64); */
+  background-color: white;
+  /* border: 2px solid blueviolet; */
+  border-radius: 100% 10% 40% 0%;
+  position: relative;
+  bottom: 0;
+}
+
+.chefImg {
+  width: 250px;
+  padding-bottom: 0;
+  position: relative;
+  right: 5%;
+  top: 3.9px;
+  /* border: 2px solid red; */
+}
+
+/* hare Offer details */
+
+.offerDetailsBox {
+  /* border: 3px solid red; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* justify-content: space-around; */
+  /* flex-direction: column; */
+}
+
+/* offerItems Images  */
+.offerDish {
+  width: 150px;
+  height: 150px;
+  border-radius: 80%;
+}
+
+/* offer image box  */
+.OfferImageBox {
+  /* border: 3px solid black; */
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.OfferDishName {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.offerOrderBtn {
+  margin-top: 10px;
+  background-color: orangered;
+  padding: 5px 30px 5px 30px;
+  border: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Offer Paragraph/Item Price  */
+
+.OfferParaBox {
+  /* border: 2px solid black; */
+  width: 50%;
+  height: 100%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.offerDetailsHead {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.crossPrice {
+  margin-right: 5px;
+  font-size: 20px;
+  text-decoration: line-through;
+  color: rgb(83, 83, 83);
+  font-weight: bold;
+}
+
+.offerCurrentprice {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.leftArrow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  border-radius: 100%;
+  background-color: rgb(196, 196, 196);
+  padding: 15px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.rightArrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  border-radius: 100%;
+  background-color: rgb(196, 196, 196);
+  padding: 15px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.rightArrow:hover {
+  background-color: rgb(156, 156, 156);
+}
+.leftArrow:hover {
+  background-color: rgb(156, 156, 156);
+}
+
+@keyframes slideFade {
+  from {
+    transform: translateX(40px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.sliderChangeAni {
+  animation: slideFade 0.5s ease-in-out;
+  will-change: transform, opacity;
+}
+
+@media screen and (max-width: 786px) {
+  .chefImg {
+    width: 180px;
+  }
+
+  .offerDish {
+    width: 110px;
+    height: 110px;
+  }
+
+  .offerOrderBtn {
+    margin-top: 5px;
+    padding: 5px 10px 5px 10px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  /* Offers Sections Coantaner */
+
+  .mainContainerOfOffer {
+    width: 100%;
+  }
+
+  .offerContainer {
+    border: 2px solid tan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* hare image Css */
+
+  .imgContainer {
+    /* border: 3px solid black; */
+    position: relative;
+  }
+
+  .imgBg {
+    /* background-color: rgb(96, 255, 64); */
+    background-color: white;
+    /* border: 2px solid blueviolet; */
+    border-radius: 100% 10% 40% 0%;
+    position: relative;
+    top: 10px;
+  }
+
+  .chefImg {
+    width: 90px;
+    padding-bottom: 10px;
+    position: relative;
+    /* border: 2px solid red; */
+  }
+
+  /* food images */
+  .offerDish {
+    width: 60px;
+    height: 60px;
+    margin-top: 5px;
+  }
+
+  .OfferDishName {
+    font-size: 15px;
+    margin-top: 5px;
+  }
+
+  .offerOrderBtn {
+    margin-top: 5px;
+    padding: 5px 15px 5px 15px;
+    font-size: 5.6px;
+    border-radius: 3px;
+  }
+
+  /* Offer Paragraph/Item Price  */
+
+  .OfferParaBox {
+    /* border: 2px solid black; */
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .offerDetailsHead {
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    text-align: center;
+  }
+
+  .crossPrice {
+    font-size: 6px;
+    text-decoration: line-through;
+    color: rgb(83, 83, 83);
+    font-weight: bold;
+  }
+
+  .offerCurrentprice {
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .leftArrow {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border-radius: 100%;
+    background-color: rgb(196, 196, 196);
+    padding: 15px;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  .rightArrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    border-radius: 100%;
+    background-color: rgb(196, 196, 196);
+    padding: 15px;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .leftArrow {
+    /* font-size: 15px; */
+    padding: 10px;
+  }
+  .rightArrow {
+    padding: 10px;
+    /* font-size: 15px; */
+  }
+}

@@ -1,0 +1,76 @@
+.serviceHeading{
+    text-align: center;
+    font-size: 35px;
+    margin-top: 30px;
+    background-color: #f7f7f7;
+    
+}
+
+.serviceContainer {
+    width: 100%;
+    padding: 50px 20px;
+ 
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .serviceBox {
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 40px;
+    flex-wrap: wrap; /* Makes it responsive */
+  }
+  
+  .leftSeriveBox,
+  .rightSeriveBox {
+    flex: 1 1 100px;
+   
+  }
+  
+  .leftSerivePara,
+  .rigthSerivePara {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .destinationLineBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .destinationLinePara {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ccc;
+    user-select: none;
+  }
+  
+  /* Responsive layout for smaller screens */
+  @media screen and (max-width: 768px) {
+    .serviceBox {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .destinationLinePara {
+      writing-mode: horizontal-tb;
+      transform: none;
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+  }
+  
