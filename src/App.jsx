@@ -11,6 +11,8 @@ import Service from "./Componets/Service/Service";
 import BubbleIcons from "./Componets/BubbleIcons/BubbleIcons";
 import Footer from "./Componets/Footer/Footer";
 import SignUp from "./Componets/SignUp/SignUp";
+import PageLoader from "./PageLoader/PageLoader";
+
 
 function App() {
   const offerRef = useRef(null);
@@ -23,7 +25,9 @@ function App() {
   return (
     <>
       {!shouldHideNavbar && <Navbar offerRef={offerRef} menusRef={menusRef} />}
+      <PageLoader/>
       <Routes>
+
         {/* Homepage */}
         <Route
           path="/"
