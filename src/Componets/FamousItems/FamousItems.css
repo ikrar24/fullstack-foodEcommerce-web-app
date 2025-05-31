@@ -1,0 +1,87 @@
+.famousItemMainContainer {
+    padding: 20px;
+    max-width: 100%;
+    margin: auto;
+  }
+  
+  .famousItemTitle {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Horizontal Slider */
+  .famousItemSliderHorizontal {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    /* border:2px solid red; */
+  }
+  
+  /* Optional: Custom scrollbar */
+  .famousItemSliderHorizontal::-webkit-scrollbar {
+    height: 6px;
+  }
+  .famousItemSliderHorizontal::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .famousItemSliderHorizontal::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 10px;
+  }
+  
+  /* Each item */
+  .famousItemCard {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    /* border:2px solid red; */
+  cursor: pointer;
+  }
+  
+  /* Image */
+/* Image - Circular */
+.famousItemImg {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #eee;
+  }
+  
+  /* Name */
+  .famousItemName {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 600px) {
+    .famousItemCard {
+      width: 160px;
+      padding: 10px;
+    }
+  
+    .famousItemImg {
+      height: 120px;
+      border-radius:100% ;
+    }
+  
+    .famousItemName {
+      font-size: 1rem;
+    }
+  }
+  
