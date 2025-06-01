@@ -25,21 +25,25 @@ const menuData = [
   },
 ];
 
-function Menus({menusRef}) {
-  const navigate = useNavigate()
+function Menus({ menusRef }) {
+  const navigate = useNavigate();
 
-  const handleSelectMenus = (item)=>{
+  const handleSelectMenus = (item) => {
     navigate(`/menu/${item.name.toLowerCase()}`);
-    }
+  };
 
   return (
     <section className="menusContainer" ref={menusRef}>
-      <div className="menuBox" >
+      <div className="menuBox">
         <h1 className="menuHeading">Our Famous Menus</h1>
 
         <div className="menuFlex">
           {menuData.map((item, index) => (
-            <div className="menuCard" key={index} onClick={() => handleSelectMenus(item)}>
+            <div
+              className="menuCard"
+              key={index}
+              onClick={() => handleSelectMenus(item)}
+            >
               <img src={item.img} alt={item.name} className="menuImg" />
               <h3 className="menuTitle">{item.name}</h3>
               <p className="menuPrice">{item.price}</p>

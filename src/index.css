@@ -1,39 +1,36 @@
 *{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .desktop{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  /* border: 2px solid black; */
 }
 
-
 /* body{
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 } */
 
 .mobile{
-   width: 98%;
-   /* border: 2px solid red; */
-   height: auto;
+ width: 98%;
+ /* border: 2px solid red; */
+ height: auto;
  /* overflow: hidden; */
 }
 
-
-
 /* progress loader  */
 #nprogress .spinner {
-    display: none !important;
-  }
+  display: none !important;
+}
 
-  #nprogress .bar {
-    background: orangered;
-    height: 4.5px;
-    border-radius: 10%;
-  }
+#nprogress .bar {
+  background: orangered;
+  height: 4.5px;
+  border-radius: 10%;
+}
