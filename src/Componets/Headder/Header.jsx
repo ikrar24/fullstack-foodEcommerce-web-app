@@ -6,7 +6,7 @@ function Header() {
 
   const navigate = useNavigate()
 const ReferToSingUp = ()=>{
-navigate("/signup")
+navigate("/login")
 }
 
   return (
@@ -31,8 +31,8 @@ navigate("/signup")
             </h2>
           </div>
 
-          <div className="signNowBtnBox">
-            <button onClick={ReferToSingUp} className="signNowBtn">Sign Now</button>
+          <div className="signNowBtnBox loginNowBtnBox">
+            <button onClick={ReferToSingUp} className="signNowBtn loginNowBtn">Login Now</button>
           </div>
 
 

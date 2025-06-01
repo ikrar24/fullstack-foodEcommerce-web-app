@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import bcrypt from "bcryptjs";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const [Name, setName] = useState("");
@@ -149,6 +150,13 @@ function SignUp() {
             <button className="CreateAccountBtn">Create Account</button>
           </div>
         </form>
+        <div className="IfAnAccountBox">
+
+          <p className="IfAnAccountPara">
+            If You Have An Account? <Link className="anAcconts" to="/login">login</Link>
+          </p>
+
+        </div>
       </div>
     </section>
   );

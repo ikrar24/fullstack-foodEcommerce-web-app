@@ -11,20 +11,25 @@ import Service from "./Componets/Service/Service";
 import BubbleIcons from "./Componets/BubbleIcons/BubbleIcons";
 import Footer from "./Componets/Footer/Footer";
 import SignUp from "./Componets/SignUp/SignUp";
+import Login from "./Componets/Login/Login";
 import PageLoader from "./PageLoader/PageLoader";
+import Resturent from "./Componets/Resturent/Resturent"
+import ReferMenu from "./Menus/ReferMenu";
 
 
 function App() {
   const offerRef = useRef(null);
   const menusRef = useRef(null);
+  const serviceRef = useRef(null);
+  const resturentRef = useRef(null);
   const location = useLocation();
 
-  const hideNavbarRoutes = ["/signup"];
+  const hideNavbarRoutes = ["/signup","/login"];
   const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
   return (
     <>
-      {!shouldHideNavbar && <Navbar offerRef={offerRef} menusRef={menusRef} />}
+      {!shouldHideNavbar && <Navbar offerRef={offerRef} menusRef={menusRef} serviceRef={serviceRef} resturentRef={resturentRef} />}
       <PageLoader/>
       <Routes>
 
@@ -38,9 +43,11 @@ function App() {
                 <FamousItems />
                 <Offers offerRef={offerRef} />
                 <Menus menusRef={menusRef} />
-                <Service />
+                <Service serviceRef={serviceRef}/>
+                <Resturent resturentRef={resturentRef}/>
                 <BubbleIcons />
                 <Footer />
+                
               </div>
             </div>
           }
@@ -49,8 +56,12 @@ function App() {
         {/* Other pages */}
         <Route path="/food/:itemName" element={<SelectedFamous />} />
         <Route path="/offerfood/:itemName" element={<FoodReferLink />} />
+        <Route path="/menu/:itemName" element={<ReferMenu/>} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        
       </Routes>
+
     </>
   );
 }

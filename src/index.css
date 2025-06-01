@@ -22,5 +22,18 @@
    width: 98%;
    /* border: 2px solid red; */
    height: auto;
- 
+ /* overflow: hidden; */
 }
+
+
+
+/* progress loader  */
+#nprogress .spinner {
+    display: none !important;
+  }
+
+  #nprogress .bar {
+    background: orangered;
+    height: 4.5px;
+    border-radius: 10%;
+  }

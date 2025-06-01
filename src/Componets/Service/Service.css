@@ -3,13 +3,13 @@
     font-size: 35px;
     margin-top: 30px;
     background-color: #f7f7f7;
-    
+    /* border: 2px solid red;     */
 }
 
 .serviceContainer {
     width: 100%;
+    /* border: 2px solid black; */
     padding: 50px 20px;
- 
     background: #f7f7f7;
     display: flex;
     justify-content: center;
@@ -17,7 +17,8 @@
   }
   
   .serviceBox {
-    max-width: 1200px;
+    /* max-width: 1200px; */
+    /* border: 2px solid red; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,6 +72,10 @@
       transform: none;
       margin-top: 10px;
       margin-bottom: 0;
+    }
+
+    .serviceContainer{
+      padding: 0%;
     }
   }
   

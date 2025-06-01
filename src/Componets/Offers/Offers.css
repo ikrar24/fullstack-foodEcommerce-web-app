@@ -19,7 +19,6 @@
   /* box-shadow: 0px 0px 8px 0.3px black; */
   width: 80%;
   cursor: pointer;
-  margin-left: 10px;
   /* height: 30vh; */
 }
 
@@ -129,28 +128,34 @@
 .leftArrow {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 45%;
   border-radius: 100%;
   background-color: rgb(196, 196, 196);
   padding: 15px;
   transition: 0.5s;
   cursor: pointer;
+  z-index: 1000;
+  opacity: 0.7;
 }
 .rightArrow {
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 45%;
   border-radius: 100%;
   background-color: rgb(196, 196, 196);
   padding: 15px;
   transition: 0.5s;
   cursor: pointer;
+  z-index: 1000;
+  opacity: 0.7;
 }
 
 .rightArrow:hover {
   background-color: rgb(156, 156, 156);
+  opacity: 10;
 }
 .leftArrow:hover {
+  opacity: 10;
   background-color: rgb(156, 156, 156);
 }
 
@@ -194,6 +199,8 @@
 
   .mainContainerOfOffer {
     width: 100%;
+    display: flex;
+    /* padding-right: 10%; */
   }
 
   .offerContainer {
@@ -201,6 +208,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    margin-left: 0px;
   }
 
   /* hare image Css */
@@ -262,7 +271,6 @@
     font-size: 10px;
     font-weight: bold;
     margin-bottom: 10px;
-
     text-align: center;
   }
 
@@ -282,30 +290,38 @@
   .leftArrow {
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 40%;
     border-radius: 100%;
     background-color: rgb(196, 196, 196);
     padding: 15px;
     transition: 0.5s;
     cursor: pointer;
+    opacity: 0.7;
   }
   .rightArrow {
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 40%;
     border-radius: 100%;
     background-color: rgb(196, 196, 196);
     padding: 15px;
     transition: 0.5s;
     cursor: pointer;
+    opacity: 0.7;
+
   }
+
+
+
 
   .leftArrow {
     /* font-size: 15px; */
     padding: 10px;
+  
   }
   .rightArrow {
     padding: 10px;
+   
     /* font-size: 15px; */
   }
 }

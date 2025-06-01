@@ -1,131 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap");
 
 header {
-    /* border: 2px solid red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0px;
-  }
-  
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 98%;
-    /* border: 2px solid black; */
-  }
-  
-  .ulContainer {
-    /* border: 2px solid green; */
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: nowrap;
-    /* overflow-x: auto; */
-    gap: 1rem;
-   padding: 10px 0px 10px 0px;
-  }
-    
-  /* All li items base */
-  li {
-    list-style: none;
-  }
-  
-  /* Logo */
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 98%;
+  /* border: 2px solid black; */
+}
+
+.ulContainer {
+  /* border: 2px solid green; */
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  /* overflow-x: auto; */
+  gap: 1rem;
+  padding: 10px 0px 10px 0px;
+}
+
+/* All li items base */
+li {
+  list-style: none;
+}
+
+/* Logo */
+.logoLi .logoLink {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Tagesschrift", system-ui;
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: 0.5s;
+  background-color: rgba(255, 255, 255, 0.3); /* light background */
+  backdrop-filter: blur(0px);
+}
+
+.logoLi .logoLink:hover {
+  background-color: rgba(81, 173, 138, 0.205); /* red-ish translucent */
+  backdrop-filter: blur(10px);
+}
+
+/* Center Links */
+.ulList {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ulList a {
+  text-decoration: none;
+  font-weight: 500;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.ulList a:hover {
+  color: #e67e22;
+  background-color: rgba(81, 173, 138, 0.205);
+}
+
+/* Favorite Section */
+.ulFavBox {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+
+.ulFavBox .favLink,
+.ulFavBox .heartLink {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  /* margin-left: 5px; */
+  background-color: rgba(81, 173, 138, 0.205);
+  padding: 5px;
+  border-radius: 50%;
+  /* border: 2px solid red; */
+}
+
+.heartLi,
+.favLi {
+  /* border: #e67e22 5px solid; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------------------------- */
+/* 📱 Responsive (Mobile) */
+/* -------------------------- */
+
+@media screen and (max-width: 480px) {
   .logoLi .logoLink {
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family: "Tagesschrift", system-ui;
-    text-decoration: none;
-    color: black;
-    padding: 5px 10px;
-    border-radius: 8px;
-    transition: 0.5s;
-    background-color: rgba(255, 255, 255, 0.3); /* light background */
-    backdrop-filter: blur(0px);
+    font-size: 15px;
   }
-  
-  .logoLi .logoLink:hover {
-    background-color: rgba(81, 173, 138, 0.205); /* red-ish translucent */
-    backdrop-filter: blur(10px);
-  }
-  
 
-
-
-
-  /* Center Links */
-  .ulList {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .ulList a {
-    text-decoration: none;
-    font-weight: 500;
-    color: black;
-    padding: 0.5rem;
-    border-radius: 5px;
-  }
-  
-  .ulList a:hover {
-    color: #e67e22;
-    background-color: rgba(81, 173, 138, 0.205);
-  }
-  
-  /* Favorite Section */
-  .ulFavBox {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    /* border: 2px solid red; */
-}
-
-.ulFavBox .favLink,
-.ulFavBox .heartLink{
-    text-decoration: none;
-    color: black;
-    font-size: 1.2rem;
-    /* margin-left: 5px; */
-    background-color: rgba(81, 173, 138, 0.205);
-    padding: 5px;
-    border-radius: 50%;
-    /* border: 2px solid red; */
-}
-  
-
-.heartLi,.favLi{
-    /* border: #e67e22 5px solid; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-  /* -------------------------- */
-  /* 📱 Responsive (Mobile) */
-  /* -------------------------- */
-
-  @media screen and (max-width:480px) {
-    
-    .logoLi .logoLink {
-        font-size: 18px;
-    }
-
-header{
+  header {
     font-size: 10px;
-}
-
-
-.ulFavBox .favLink,
-.ulFavBox .heartLink{
-    font-size: 13px;
-}
-
-
   }
+
+  .ulFavBox .favLink,
+  .ulFavBox .heartLink {
+    font-size: 13px;
+  }
+}
+
+
+
+@media screen and (max-width: 336px) {
+  .logoLi .logoLink {
+    font-size: 15px;
+  }
+
+  header {
+    font-size: 10px;
+  }
+
+  .ulFavBox .favLink,
+  .ulFavBox .heartLink {
+    font-size: 13px;
+  }
+}

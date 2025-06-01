@@ -1,16 +1,22 @@
 import React, { useEffect } from 'react';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-
+import { useLocation } from 'react-router-dom';
 const PageLoader = () => {
+
+
+const location = useLocation()
+
   useEffect(() => {
+    // Spinner ko hide karo
+    NProgress.configure({ showSpinner: false });
+
     NProgress.start();
 
     const handleLoad = () => {
       NProgress.done();
     };
 
-// Check if document is already loaded
     if (document.readyState === 'complete') {
       NProgress.done();
     } else {
@@ -20,9 +26,9 @@ const PageLoader = () => {
     return () => {
       window.removeEventListener('load', handleLoad);
     };
-  }, []);
+  }, [location.pathname]);
 
-  return null; // This component only handles loading bar
+  return null;
 };
 
 export default PageLoader;

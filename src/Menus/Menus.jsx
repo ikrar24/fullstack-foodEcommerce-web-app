@@ -1,5 +1,6 @@
 import React from "react";
 import "./Menus.css";
+import { useNavigate } from "react-router-dom";
 
 const menuData = [
   {
@@ -24,13 +25,13 @@ const menuData = [
   },
 ];
 
-
-const handleSelectMenus = (item)=>{
-console.log(item);
-}
-
-
 function Menus({menusRef}) {
+  const navigate = useNavigate()
+
+  const handleSelectMenus = (item)=>{
+    navigate(`/menu/${item.name.toLowerCase()}`);
+    }
+
   return (
     <section className="menusContainer" ref={menusRef}>
       <div className="menuBox" >

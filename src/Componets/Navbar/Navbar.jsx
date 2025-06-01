@@ -14,6 +14,18 @@ function Navbar({offerRef,menusRef,serviceRef,resturentRef}) {
 
   }
 
+  const scrollToService =()=>{
+    serviceRef?.current?.scrollIntoView({behavior:"smooth"})
+
+  }
+  
+
+  const scrollToResturentRef =()=>{
+    resturentRef?.current?.scrollIntoView({behavior:"smooth"})
+
+  }
+
+
   return (
     <>
       <header>
@@ -33,10 +45,10 @@ function Navbar({offerRef,menusRef,serviceRef,resturentRef}) {
                 <Link to={"#"} className="offersLink" onClick={scrollToOffers}>
                   Offers
                 </Link>
-                <Link to={"#"} className="serviceLink">
+                <Link to={"#"} className="serviceLink" onClick={scrollToService}>
                   Service
                 </Link>
-                <Link to={"#"} className="resturantLink">
+                <Link to={"#"} className="resturantLink" onClick={scrollToResturentRef}>
                   Resturant
                 </Link>
               </li>

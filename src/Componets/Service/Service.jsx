@@ -33,10 +33,10 @@ const serviceData = {
   ],
 };
 
-function Service() {
+function Service({serviceRef}) {
   return (
     <>
-      <h3 className="serviceHeading">Our Services</h3>
+      <h3 className="serviceHeading" ref={serviceRef}>Our Services</h3>
       <section className="serviceContainer">
         <div className="serviceBox">
           {/* LEFT SIDE */}
