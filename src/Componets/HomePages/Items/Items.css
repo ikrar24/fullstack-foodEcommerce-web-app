@@ -1,0 +1,222 @@
+/* Container css */
+
+.mainContainer{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.itemsContainer{
+    /* border:2px solid red; */
+    display: flex;
+    margin-top: 10px;
+    background-color: rgba(226, 226, 226, 0.911);
+    width: 80%;
+    gap: 10px;
+    padding: 20px;
+}
+
+.itemImgBox{
+    /* border:  2px solid black; */
+    width: 375px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+    /* border: 2px solid red; */
+}
+
+
+.itemImg{
+    width: 100%;
+    height: auto; 
+    opacity: cover;
+    border-radius: 10px;
+    /* border: 2px solid blueviolet; */
+}
+
+
+/* Decriptions box css */
+
+.itemDecriptionsBox{
+/* border: 2px solid red; */
+display: flex;
+}
+
+.decriptions{
+    font-size: 15px;
+}
+
+
+
+/* rating css  */
+.rating{
+    font-size: 12px;
+}
+
+
+/* prices  */
+
+.foodPriceBox{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: left;
+    padding: 5px;
+}
+
+
+
+.offerPrice{
+    font-size: 15px;
+    text-decoration: line-through;
+  color: rgb(83, 83, 83);
+}
+
+.foodPrice{
+    font-size: 25px;
+    
+}
+
+/* buyBtnBox css */
+.buyBtnBox{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+    margin-top: 10px;
+    /* border: 2px solid red; */
+}
+
+.heartIcon{
+font-size: 25px;
+cursor: pointer;
+color: grey;
+margin-left: 10px;
+}
+
+.buyBtn{
+    padding: 10px 30px 10px 30px;
+    background-color: orangered;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    border:none;
+}
+
+
+
+/* 404 Css  */
+.notFoundGifBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.notFound{
+    width: 375px;
+    height: auto;
+}
+
+/* tablate responsive css */
+@media screen and (max-width:780px) {
+    .itemsContainer{
+        width: 95%;
+    }
+}
+
+
+
+/* Mobile responsive css  */
+
+@media screen and (max-width:414px) {
+    .mainContainer{
+        /* border: 2px solid red; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .itemsContainer{
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 85%;    
+        
+    }
+
+
+
+.itemName{
+    text-align: center;
+}
+
+.itemImgBox{
+    overflow: hidden;
+    /* border: 2px solid red; */
+}
+
+.itemImg{
+    width: 200px;
+    height: 200px;
+    
+}
+
+
+.itemDecriptionsBox{
+text-align: left;
+}
+
+.decriptions{
+font-size: 12px;
+
+}
+
+
+
+.foodPriceBox{
+ 
+    
+    justify-content: center;
+   
+}
+
+
+.buyBtnBox{
+    justify-content: center;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,27 +1,44 @@
 import React, { useState, useEffect } from "react";
 import "./Offers.css";
 import { useNavigate } from "react-router-dom"; // ✅ Correct hook
-import chefModel from "../../assets/chef-modal.png";
+import chefModel from "../../../assets/chef-modal.png";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
-
 const offerData = [
   {
-    offerFoodName: "Burger",
-    offerPreviesPrice: "200$",
-    offerCurrentPrice: "100$",
-    offerDetails: "Today 50% Discount On All Food",
-    offerImg:
-      "https://images.unsplash.com/photo-1512152272829-e3139592d56f?fm=jpg&q=60&w=3000",
-    offerBgImg: chefModel,
+    FoodName: "Burger",
+    FoodRatings: "⭐⭐⭐⭐⭐",
+    FoodPrice: "200",
+    OfferPirce: "",
+    FoodImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxpZA0dD1bGXj1PlCYamdMp6W67qZF8ZdXrw&s",
+    FoodDescriptions:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore provident voluptatum exercitationem sit quos maiores atque vero officiis, modi fugiat assumenda non dolor laudantium magnam amet voluptatibus reiciendis saepe?",
+    offerDetails: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    offerBgImg: `${chefModel}`,
   },
   {
-    offerFoodName: "Pizza",
-    offerPreviesPrice: "250$",
-    offerCurrentPrice: "125$",
-    offerDetails: "Buy 1 Get 1 Free Today",
-    offerImg:
-      "https://images.unsplash.com/photo-1548365328-8b849e0ba7ef?fm=jpg&q=60&w=3000",
-    offerBgImg: chefModel,
+    FoodName: "Pizza",
+    FoodRatings: "⭐⭐⭐⭐⭐",
+    FoodPrice: "200",
+    OfferPirce: "",
+    FoodImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxpZA0dD1bGXj1PlCYamdMp6W67qZF8ZdXrw&s",
+    FoodDescriptions:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore provident voluptatum exercitationem sit quos maiores atque vero officiis, modi fugiat assumenda non dolor laudantium magnam amet voluptatibus reiciendis saepe?",
+    offerDetails: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    offerBgImg: `${chefModel}`,
+  },
+  {
+    FoodName: "Pasta",
+    FoodRatings: "⭐⭐⭐⭐⭐",
+    FoodPrice: "200",
+    OfferPirce: "",
+    FoodImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxpZA0dD1bGXj1PlCYamdMp6W67qZF8ZdXrw&s",
+    FoodDescriptions:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore provident voluptatum exercitationem sit quos maiores atque vero officiis, modi fugiat assumenda non dolor laudantium magnam amet voluptatibus reiciendis saepe?",
+    offerDetails: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    offerBgImg: `${chefModel}`,
   },
 ];
 
@@ -50,7 +67,7 @@ function Offers({ offerRef }) {
   };
 
   const referToOffer = (item) => {
-    navigate(`/offerfood/${item.offerFoodName.toLowerCase()}`);
+    navigate(`/offerfood/${item.FoodName.toLowerCase()}`);
   };
 
   return (
@@ -77,15 +94,15 @@ function Offers({ offerRef }) {
             <div className="offerDetailsBox">
               <div className="OfferImageBox">
                 <img
-                  src={offer.offerImg}
-                  alt={offer.offerFoodName}
+                  src={offer.FoodImg}
+                  alt={offer.FoodName}
                   className={`offerDish ${changeClass ? "sliderChangeAni" : ""}`}
                   loading="lazy"
                 />
                 <p
                   className={`OfferDishName ${changeClass ? "sliderChangeAni" : ""}`}
                 >
-                  {offer.offerFoodName}
+                  {offer.FoodName}
                 </p>
                 <button
                   className={`offerOrderBtn ${changeClass ? "sliderChangeAni" : ""}`}
@@ -106,9 +123,9 @@ function Offers({ offerRef }) {
                   <span
                     className={`crossPrice ${changeClass ? "sliderChangeAni" : ""}`}
                   >
-                    {offer.offerPreviesPrice}
+                    {offer.OfferPirce}
                   </span>{" "}
-                  {offer.offerCurrentPrice}
+                  {offer.FoodPrice}
                 </p>
               </div>
             </div>

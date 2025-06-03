@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import foodBg from "../../assets/food-bg.jpg";
+import foodBg from "../../../assets/food-bg.jpg";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
