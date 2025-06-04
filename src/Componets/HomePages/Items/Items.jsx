@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FaHeart } from "react-icons/fa";
-import "./items.css";
+import "./Items.css";
 import ContexApi from "../../../UseContext/UseContex";
 import { useNavigate } from "react-router-dom";
 const itemsData = [
