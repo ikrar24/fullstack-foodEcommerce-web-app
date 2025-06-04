@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import "./OrderPage.css";
 import { FaHeart } from "react-icons/fa";
 import { useParams } from "react-router-dom";
+import { reducerFun, formState} from "./OrderFunctions";
 
 const itemsData = [
   {
@@ -29,6 +30,27 @@ const itemsData = [
     FoodDescriptions: "Creamy pasta made with fresh ingredients.",
   },
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function OrderPage() {
   const { FoodName } = useParams();
@@ -62,6 +84,7 @@ function OrderPage() {
     (item) => item.FoodName.toLowerCase() === FoodName?.toLowerCase()
   );
 
+
   if (!food) {
     return (
       <div className="notFoundGifBox">
@@ -74,6 +97,29 @@ function OrderPage() {
     );
   }
 
+
+
+
+  const [state, dispatch] = useReducer( reducerFun , formState)
+
+
+  const inputValueHandle =(e)=>{
+          dispatch({
+           type:"INPUT_VALUE",
+           field: e.target.name, 
+           value: e.target.value,
+          });
+
+  }
+
+
+
+
+const orderPlace = (e)=>{
+  e.preventDefault()
+
+  console.log(state, FoodName);
+}
   return (
     <section className="mainContainer">
       <div className="itemsContainer">
@@ -120,12 +166,47 @@ function OrderPage() {
 
 
 
-        <form>
+<form className="orderDtailsForm" onSubmit={orderPlace}>
 
+<input type="text" 
+name="Name" 
+placeholder="Name" 
+value={state.Name} 
+onChange={inputValueHandle}
+ />
 
+<input 
+type="Address" 
+name="Address" 
+placeholder="Address" 
+value={state.Address} 
+onChange={inputValueHandle} 
+/>
 
+<input type="text" 
+name="PinCode" 
+placeholder="Pin Code"
+ value={state.PinCode} 
+onChange={inputValueHandle}
+/>
+
+<input 
+type="number" 
+name="Phone" 
+placeholder="Phone" 
+value={state.Phone} 
+onChange={inputValueHandle}
+/>
+
+<select name="PaymentSections">
+<option value=" ">Select Payment</option>
+<option value="cash">Cash On Delevery</option>
+<option value="online">Online Payment</option>
+</select>
+
+<button className="orderPlaceBtn">Order Place</button>
       </form>  
-      
+
 
     </section>
   );

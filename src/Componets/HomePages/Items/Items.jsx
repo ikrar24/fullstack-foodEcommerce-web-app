@@ -87,7 +87,7 @@ function Items() {
           <div
             className="itemsContainer"
             key={index}
-            onClick={() => oderReferHendel(item)}
+           
           >
             <div className="itemImgBox">
               <img src={item.FoodImg} className="itemImg" alt={item.FoodName} />
@@ -122,7 +122,7 @@ function Items() {
                     onClick={() => toggleFavorite(item)}
                   />
                 </div>
-                <button className="buyBtn">Order</button>
+                <button className="buyBtn"  onClick={() => oderReferHendel(item)}>Order</button>
               </div>
             </div>
           </div>

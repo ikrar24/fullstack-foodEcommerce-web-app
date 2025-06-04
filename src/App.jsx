@@ -20,6 +20,7 @@ import Items from "./Componets/HomePages/Items/Items";
 import FavItems from "./Componets/FavItems/FavItems";
 import ContexApi from "./UseContext/UseContex";
 import OrderPage from "./Componets/OrderPage/OrderPage";
+import UseReducer from "./UseReducer/UseReducer";
 
 function App() {
   const offerRef = useRef(null);
@@ -87,6 +88,7 @@ function App() {
         }/>
         
 
+<Route path="/reducer" element={<UseReducer/>}/>
 <Route path="/order/:FoodName" element={<OrderPage/>}/>
 
       </Routes>

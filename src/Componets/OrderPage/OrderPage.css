@@ -1,0 +1,31 @@
+.orderDtailsForm{
+    gap: 15px;
+    /* border: 2px solid red; */
+    width: 80%;
+    margin-bottom: 25px;
+}
+
+.orderDtailsForm input , .orderDtailsForm select {
+     padding: 10px;
+     border: 1px solid black ;
+     border-radius: 2px;
+     outline: none;
+}
+
+.orderDtailsForm button{
+    padding: 10px;
+    background-color: orangered;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 790px) {
+    .orderDtailsForm{
+        width:70%;
+    }
+    
+}
