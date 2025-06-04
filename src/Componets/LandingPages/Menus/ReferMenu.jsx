@@ -1,47 +1,150 @@
-import React from "react";
+import React, { useState } from "react";
+import{ FaHeart} from "react-icons/fa";
 import { useParams } from "react-router-dom";
-const menuData = [
-    {
-      name: "Cheesy Burger",
-      price: "$8.99",
-      img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
-    },
-    {
-      name: "Pepperoni Pizza",
-      price: "$12.50",
-      img: "https://images.unsplash.com/photo-1601924570236-d73d1dc063bc",
-    },
-    {
-      name: "Creamy Pasta",
-      price: "$10.75",
-      img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-    },
-    {
-      name: "Grilled Sandwich",
-      price: "$6.50",
-      img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90",
-    },
+import "../../HomePages/Items/Items.css";
+const Data = [
+  {
+    FoodName: "Pasta",
+    FoodRatings: "⭐⭐⭐⭐⭐",
+    FoodPrice: "200",
+    OfferPirce: "",
+    FoodImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxpZA0dD1bGXj1PlCYamdMp6W67qZF8ZdXrw&s",
+    FoodDescriptions:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore provident voluptatum exercitationem sit quos maiores atque vero officiis, modi fugiat assumenda non dolor laudantium magnam amet voluptatibus reiciendis saepe?",
+  },
+  {
+    FoodName: "Pasta Hero",
+    FoodRatings: "⭐⭐⭐⭐⭐",
+    FoodPrice: "200",
+    OfferPirce: "",
+    FoodImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxpZA0dD1bGXj1PlCYamdMp6W67qZF8ZdXrw&s",
+    FoodDescriptions:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore provident voluptatum exercitationem sit quos maiores atque vero officiis, modi fugiat assumenda non dolor laudantium magnam amet voluptatibus reiciendis saepe?",
+  },
+  {
+    FoodName: "Pasta Masala",
+    FoodRatings: "⭐⭐⭐⭐⭐",
+    FoodPrice: "200",
+    OfferPirce: "",
+    FoodImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxpZA0dD1bGXj1PlCYamdMp6W67qZF8ZdXrw&s",
+    FoodDescriptions:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore provident voluptatum exercitationem sit quos maiores atque vero officiis, modi fugiat assumenda non dolor laudantium magnam amet voluptatibus reiciendis saepe?",
+  },
   ];
   
 
 function ReferMenu() {
-  const { itemName } = useParams();
+ 
 
-  const food = menuData.find(
-    (item) => item.name.toLowerCase() === itemName.toLowerCase()
+  const [favItems, setFavItems] = useState(() => {
+    const stored = JSON.parse(localStorage.getItem("favDish")) || [];
+    return stored.map((item) => item.FoodName);
+  });
+
+  const toggleFavorite = (item) => {
+    const stored = JSON.parse(localStorage.getItem("favDish")) || [];
+    const isFav = favItems.includes(item.FoodName);
+
+    let updatedStorage;
+    let updatedState;
+
+    if (isFav) {
+      // Remove from favorites
+      updatedStorage = stored.filter((i) => i.FoodName !== item.FoodName);
+      updatedState = favItems.filter((name) => name !== item.FoodName);
+    } else {
+      // Add to favorites
+      updatedStorage = [...stored, item];
+      updatedState = [...favItems, item.FoodName];
+    }
+
+    // Update both localStorage and state
+    localStorage.setItem("favDish", JSON.stringify(updatedStorage));
+    setFavItems(updatedState);
+  };
+
+  const isFavorited = (name) => favItems.includes(name);
+
+
+
+
+  const { FoodName } = useParams();
   
-  );
+  
+  
+  const food = Data.find((item) => {
+    if (!item.FoodName || !FoodName) return false;
+    return item.FoodName.toLowerCase() === FoodName.toLowerCase();
+  });
+  
+  
+  
+    
+    if (!food) return <div className="notFoundGifBox"><img
+      src={`https://media.giphy.com/media/UoeaPqYrimha6rdTFV/giphy.gif`}
+      alt="No Results"
+      className="notFound"
+    />
+  </div>;
+  
 
-  if (!food) return <h2>Item Not Found</h2>;
+
+  const oderReferHendel = (item) => {
+    console.log(item);
+  };
 
   return (
-    <div>
-      <h2>Item Details</h2>
-      <p><strong>Name:</strong> {food.name}</p>
-      <p><strong>Image URL:</strong> {food.img}</p>
-      <p><strong>Price(if any):</strong> {food.price || "N/A"}</p>
-      <img src={food.img} alt={food.name} style={{ width: "200px", borderRadius: "20px" }} />
-    </div>
+<section className="mainContainer">
+      {
+        [food].map((item, index) => (
+          <div
+            className="itemsContainer"
+            key={index}
+            onClick={() => oderReferHendel(item)}
+          >
+            <div className="itemImgBox">
+              <img src={item.FoodImg} className="itemImg" alt={item.FoodName} />
+            </div>
+
+            <div className="itemBox">
+              <h1 className="itemName">{item.FoodName}</h1>
+
+              <main className="itemDecriptionsBox">
+                <h2 className="decriptions">{item.FoodDescriptions}</h2>
+              </main>
+
+              <div className="ratingBox">
+                <h3 className="rating">{item.FoodRatings}</h3>
+              </div>
+
+              <div className="foodPriceBox">
+                <span className="offerPrice">
+
+                <p className="foodPriceOffer">{item.OfferPirce}</p>
+                </span>
+                <p className="foodPrice">{item.FoodPrice}</p>
+              </div>
+
+              <div className="buyBtnBox addToCartBox">
+                <div className="FavIcon">
+                  <FaHeart
+                    className="heartIcon"
+                    style={{
+                      color: isFavorited(item.FoodName) ? "red" : "gray",
+                    }}
+                    onClick={() => toggleFavorite(item)}
+                  />
+                </div>
+                <button className="buyBtn">Order</button>
+              </div>
+            </div>
+          </div>
+        ))
+       }
+    </section>
   );
 }
 

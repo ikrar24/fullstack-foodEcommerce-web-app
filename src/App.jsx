@@ -19,6 +19,7 @@ import HomeNav from "./Componets/HomePages/HomeNav/HomeNav";
 import Items from "./Componets/HomePages/Items/Items";
 import FavItems from "./Componets/FavItems/FavItems";
 import ContexApi from "./UseContext/UseContex";
+import OrderPage from "./Componets/OrderPage/OrderPage";
 
 function App() {
   const offerRef = useRef(null);
@@ -52,7 +53,7 @@ function App() {
                 <Service serviceRef={serviceRef}/>
                 <Resturent resturentRef={resturentRef}/>
                 <BubbleIcons />
-                <Footer />
+                
                 
               </div>
             </div>
@@ -60,9 +61,9 @@ function App() {
         />
 
         {/* Other pages */}
-        <Route path="/food/:FoodName" element={<SelectedFamous />} />
+        <Route path="/famous/:FoodName" element={<SelectedFamous />} />
         <Route path="/offerfood/:itemName" element={<FoodReferLink />} />
-        <Route path="/menu/:itemName" element={<ReferMenu/>} />
+        <Route path="/menu/:FoodName" element={<ReferMenu/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={
@@ -81,11 +82,15 @@ function App() {
                 <FavItems/>
               </div>
             </div>
-                <Footer/>
+                
           </div>
         }/>
         
+
+<Route path="/order/:FoodName" element={<OrderPage/>}/>
+
       </Routes>
+        <Footer />
 
     
     </ContexApi.Provider>

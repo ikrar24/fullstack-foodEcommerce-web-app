@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import "./items.css";
 import ContexApi from "../../../UseContext/UseContex";
+import { useNavigate } from "react-router-dom";
 const itemsData = [
   {
     FoodName: "Burger",
@@ -73,8 +74,10 @@ function Items() {
       .includes((searchValue || "").trim().toLowerCase())
   );
 
+
+  const navigate = useNavigate()
   const oderReferHendel = (item) => {
-    console.log(item);
+    navigate(`/order/${item.FoodName.toLowerCase()}`);
   };
 
   return (

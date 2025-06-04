@@ -14,6 +14,8 @@
   /* Horizontal Slider */
   .famousItemSliderHorizontal {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 16px;
     overflow-x: auto;
     overflow-y: hidden;
@@ -21,7 +23,8 @@
     scroll-behavior: smooth;
     padding-bottom: 10px;
     padding-left: 10px;
-    /* border:2px solid red; */
+    border:2px solid red;
+    
   }
   
   /* Optional: Custom scrollbar */
@@ -58,6 +61,7 @@
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid #eee;
+
   }
   
   /* Name */
@@ -83,7 +87,12 @@
     .famousItemName {
       font-size: 1rem;
     }
-  }
-  
 
+
+    .famousItemSliderHorizontal {
+      display: flex;
+      justify-content: normal;
+      align-items: normal;}
+
+  }
   

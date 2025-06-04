@@ -4,24 +4,34 @@ import { useNavigate } from "react-router-dom";
 
 const menuData = [
   {
-    name: "Cheesy Burger",
-    price: "$8.99",
-    img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+    FoodName: "Pasta",
+    FoodRatings: "⭐⭐⭐⭐⭐",
+    FoodPrice: "200",
+    OfferPirce: "",
+    FoodImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxpZA0dD1bGXj1PlCYamdMp6W67qZF8ZdXrw&s",
+    FoodDescriptions:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore provident voluptatum exercitationem sit quos maiores atque vero officiis, modi fugiat assumenda non dolor laudantium magnam amet voluptatibus reiciendis saepe?",
   },
   {
-    name: "Pepperoni Pizza",
-    price: "$12.50",
-    img: "https://images.unsplash.com/photo-1601924570236-d73d1dc063bc",
+    FoodName: "Pasta Hero",
+    FoodRatings: "⭐⭐⭐⭐⭐",
+    FoodPrice: "200",
+    OfferPirce: "",
+    FoodImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxpZA0dD1bGXj1PlCYamdMp6W67qZF8ZdXrw&s",
+    FoodDescriptions:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore provident voluptatum exercitationem sit quos maiores atque vero officiis, modi fugiat assumenda non dolor laudantium magnam amet voluptatibus reiciendis saepe?",
   },
   {
-    name: "Creamy Pasta",
-    price: "$10.75",
-    img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-  },
-  {
-    name: "Grilled Sandwich",
-    price: "$6.50",
-    img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90",
+    FoodName: "Pasta Masala",
+    FoodRatings: "⭐⭐⭐⭐⭐",
+    FoodPrice: "200",
+    OfferPirce: "",
+    FoodImg:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxpZA0dD1bGXj1PlCYamdMp6W67qZF8ZdXrw&s",
+    FoodDescriptions:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore provident voluptatum exercitationem sit quos maiores atque vero officiis, modi fugiat assumenda non dolor laudantium magnam amet voluptatibus reiciendis saepe?",
   },
 ];
 
@@ -29,7 +39,8 @@ function Menus({ menusRef }) {
   const navigate = useNavigate();
 
   const handleSelectMenus = (item) => {
-    navigate(`/menu/${item.name.toLowerCase()}`);
+    navigate(`/menu/${item.FoodName.toLowerCase()}`);
+    
   };
 
   return (
@@ -43,10 +54,11 @@ function Menus({ menusRef }) {
               className="menuCard"
               key={index}
               onClick={() => handleSelectMenus(item)}
+             
             >
-              <img src={item.img} alt={item.name} className="menuImg" />
-              <h3 className="menuTitle">{item.name}</h3>
-              <p className="menuPrice">{item.price}</p>
+              <img src={item.FoodImg} alt={item.FoodName} className="menuImg" />
+              <h3 className="menuTitle">{item.FoodName}</h3>
+              <p className="menuPrice">{item.FoodPrice}</p>
             </div>
           ))}
         </div>
