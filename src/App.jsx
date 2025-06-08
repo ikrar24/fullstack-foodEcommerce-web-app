@@ -1,5 +1,5 @@
-import React, { useRef , useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import React, { useRef , useState, useEffect } from "react";
+import { Routes, Route, useLocation , useNavigate, matchPath} from "react-router-dom";
 import Navbar from "./Componets/LandingPages/Navbar/Navbar";
 import Header from "./Componets/LandingPages/Headder/Header";
 import FamousItems from "./Componets/LandingPages/FamousItems/FamousItems";
@@ -21,6 +21,12 @@ import FavItems from "./Componets/FavItems/FavItems";
 import ContexApi from "./UseContext/UseContex";
 import OrderPage from "./Componets/OrderPage/OrderPage";
 import UseReducer from "./UseReducer/UseReducer";
+import Profile from "./Componets/Profile/Profile";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import Protect from "./ProtectionRaute/Protect";
+import WithOutListNav from "./Componets/LandingPages/Navbar/WithOutListNav";
+
 
 function App() {
   const offerRef = useRef(null);
@@ -28,16 +34,23 @@ function App() {
   const serviceRef = useRef(null);
   const resturentRef = useRef(null);
   const location = useLocation();
-
-  const hideNavbarRoutes = ["/signup","/login","/favorites","/home"];
-  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
+  const navigate = useNavigate();
+  const hideNavbarRoutes = ["/signup","/login","/favorites","/home","/profile","/famous/:FoodName","/offerfood/:itemName","/menu/:FoodName"]
+  const shouldHideNavbar = hideNavbarRoutes.some((path) =>
+  matchPath({ path, end: true }, location.pathname)
+);
 
   const [searchCotextApi, setsearchCotextApi] = useState("")
+
+console.log(location);
+
+
+
 
   return (
     
     <ContexApi.Provider value={searchCotextApi}>
-      {!shouldHideNavbar && <Navbar offerRef={offerRef} menusRef={menusRef} serviceRef={serviceRef} resturentRef={resturentRef} />}
+      {shouldHideNavbar? <WithOutListNav className="hideBar"/> : <Navbar offerRef={offerRef} menusRef={menusRef} serviceRef={serviceRef} resturentRef={resturentRef} />}
       <PageLoader/>
       <Routes>
 
@@ -45,7 +58,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="desktop">
+            <div key={location.key} className="desktop">
               <div className="mobile">
                 <Header />
                 <FamousItems />
@@ -61,21 +74,37 @@ function App() {
           }
         />
 
+
+
+
+{/* Mian NavBar Link  */}
+<Route path="/resturent" element={<Resturent/>} />
+<Route path="/offers" element={<Offers/>}/>
+<Route path="/menu" element={<Menus/>}/>
+<Route path="/service" element={<Service/>}/>
+
+
         {/* Other pages */}
         <Route path="/famous/:FoodName" element={<SelectedFamous />} />
         <Route path="/offerfood/:itemName" element={<FoodReferLink />} />
         <Route path="/menu/:FoodName" element={<ReferMenu/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+       
+       
+   
         <Route path="/home" element={
-          <div>
-            <HomeNav searchCotextApi={setsearchCotextApi}/>
-         <Items/>
-          </div>
-          
+        <Protect>
+        <>
+          <HomeNav searchCotextApi={setsearchCotextApi} />
+          <Items />
+        </>
+      </Protect>
+      
         } />
 
         <Route path="/favorites" element={
+          <Protect>
           <div>
             <HomeNav/>
             <div className="desktop">
@@ -85,16 +114,21 @@ function App() {
             </div>
                 
           </div>
+          </Protect>
         }/>
         
 
-<Route path="/reducer" element={<UseReducer/>}/>
-<Route path="/order/:FoodName" element={<OrderPage/>}/>
+        <Route path="/order/:FoodName" element={<Protect><OrderPage /></Protect>} />
+
+        <Route path="/profile" element={<Protect><Profile /></Protect>} />
+<Route path="*" element={<div>
+  Route Is Not Found
+</div>}/>
 
       </Routes>
-        <Footer />
 
-    
+        <Footer />
+        <ToastContainer />
     </ContexApi.Provider>
   );
 }

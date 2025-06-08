@@ -3,7 +3,7 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <footer className="footerContainer">
+    <footer className="footerContainer mt-9 ">
       <div className="footerContent">
         <div className="footerSection about">
           <h3>About Us</h3>

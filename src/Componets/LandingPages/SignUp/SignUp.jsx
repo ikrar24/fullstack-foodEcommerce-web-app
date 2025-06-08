@@ -28,7 +28,8 @@ function SignUp() {
 
     localStorage.setItem("username", JSON.stringify(Name));
     localStorage.setItem("phone Number", JSON.stringify(PhoneNum));
-    localStorage.setItem("email", JSON.stringify(Email));
+    localStorage.setItem("email", JSON.stringify(Email.trim().toLowerCase()));
+
     localStorage.setItem(" Address", JSON.stringify( Address));
     localStorage.setItem("password", hashedPassword); // ✅ No JSON.stringify
     navigate("/login");

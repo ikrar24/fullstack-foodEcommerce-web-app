@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import "../HomePages/Items/Items.css";
 import { FaHeart } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 function FavItems() {
   const [favItems, setFavItems] = useState([]);
-
+ const navigate = useNavigate()
   // Load fav items on component mount
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("favDish")) || [];
@@ -36,7 +37,7 @@ function FavItems() {
     favItems.some((item) => item.FoodName === name);
 
   const oderReferHendel = (item) => {
-    console.log("Order referred for:", item.FoodName);
+    navigate("/order")
   };
 
   return (

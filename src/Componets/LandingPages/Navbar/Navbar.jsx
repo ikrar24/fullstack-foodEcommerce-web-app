@@ -1,8 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { useNavigate  } from "react-router-dom";
 import "./Navbar.css";
 function Navbar({offerRef,menusRef,serviceRef,resturentRef}) {
+
+
+  const navigate = useNavigate()
+
+
+//   const scrollHendle = (section)=>{
+// navigate("/",{state:{scroll:section}});
+//   }
+
+
+
   const scrollToOffers = ()=>{
     offerRef?.current?.scrollIntoView({behavior:"smooth"})
     
@@ -11,6 +23,7 @@ function Navbar({offerRef,menusRef,serviceRef,resturentRef}) {
   
   const scrollToMenus =()=>{
     menusRef?.current?.scrollIntoView({behavior:"smooth"})
+    navigate("/")
 
   }
 
@@ -39,31 +52,40 @@ function Navbar({offerRef,menusRef,serviceRef,resturentRef}) {
 
             <ul className="ulList">
               <li className="logoLi">
-                <Link to={"#"} className="menuLink" onClick={scrollToMenus}>
+
+                <Link to={"/"} className="menuLink"  onClick={scrollToMenus}>
                   Menu
                 </Link>
-                <Link to={"#"} className="offersLink" onClick={scrollToOffers}>
+
+
+                <Link to={"/"} className="offersLink" onClick={scrollToOffers}>
                   Offers
                 </Link>
+
+
                 <Link to={"#"} className="serviceLink" onClick={scrollToService}>
                   Service
                 </Link>
+
+
                 <Link to={"#"} className="resturantLink" onClick={scrollToResturentRef}>
                   Resturant
                 </Link>
+
+
               </li>
             </ul>
 
             <ul className="ulFavBox">
               <li className="heartLi">
-                <Link to={"#"} className="heartLink">
+                <Link to={"/favorites"} className="heartLink">
                   {" "}
                   <FaHeart />
                 </Link>
               </li>
 
               <li className="favLi">
-                <Link className="favLink">
+                <Link to={"favoritess"} className="favLink">
                   <FaShoppingCart />
                 </Link>
               </li>

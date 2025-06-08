@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { useNavigate,Link } from "react-router-dom";
 import bcrypt from "bcryptjs";
+import { UserPassFun, UserPassInit } from "../../../PasswordReducer/PassReducer";
+import { v4 as uuidv4 } from 'uuid';
 import "./Login.css"
 
 function Login() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [state, dispatch] = useReducer(UserPassFun, UserPassInit )
 
   const navigate = useNavigate();
-
+  
   const isFormFilled = Email.trim() !== "" && Password.trim() !== "";
+  
+
 
   const submitLogin = (e) => {
     e.preventDefault();
 
-    const storedEmail = JSON.parse(localStorage.getItem("email"));
+   
     const storedHashedPassword = localStorage.getItem("password");
+
+    const storedEmail = JSON.parse(localStorage.getItem("email"));
 
     if (!storedEmail || !storedHashedPassword) {
       alert("User not found, please sign up first!");
@@ -25,14 +32,58 @@ function Login() {
 
     const isPasswordCorrect = bcrypt.compareSync(Password, storedHashedPassword);
 
-    if (Email === storedEmail && isPasswordCorrect) {
+    const enteredEmail = Email.trim().toLowerCase();
+    
+    
+    if (isPasswordCorrect && storedEmail === enteredEmail) {
       navigate("/home");
     } else {
       alert("Invalid email or password!");
+      return
     }
+    const userId = uuidv4()
+    
+    localStorage.setItem("userId",`${JSON.stringify(userId)}`)
+    
 
+
+    console.log("Entered email:", Email);
+    console.log("Stored email:", storedEmail);
+    console.log("Entered password:", Password);
+    console.log("Stored hashed password:", storedHashedPassword);
+    console.log("Password match:", isPasswordCorrect);
+    
+  
+    
+
+// if(Password === isPasswordCorrect){
+//   console.log(true)
+// }else{
+//   console.log(false)
+// }
+    
+     
 
   };
+
+
+  // i am not changing the normal useState Becouse this is Alredy Defind but currently i create useReducer
+  const passwordHandle = (e) => {
+
+    setPassword(e.target.value)
+    
+    dispatch({
+
+      type:"USER_PASSWORD",
+      password: e.target.value,
+      feild: e.target.name,
+      
+    })
+  
+
+  }
+
+// console.log(state);
 
   return (
     <section className="logingContaier">
@@ -69,7 +120,8 @@ function Login() {
               placeholder=" "
               id="loginPassword"
               value={Password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={passwordHandle}
+              name="password"
               required
             />
             <label htmlFor="loginPassword" className="passLebel inputLable">
